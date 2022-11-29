@@ -1,10 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { AiOutlineCheck } from 'react-icons/ai'
 
 const Todo = () => {
+  const [isChecked, setIsChecked] = useState(false)
+  const checkedBox = (<div className='h-10 w-10 border-blue-400 border-[3px] rounded-lg relative'><span className='flex justify-center absolute -top-4 -left-[6px] items-center w-[170%] h-[170%] text-8xl'><AiOutlineCheck /></span></div>)
+  const uncheckedBox = (<div className='h-10 w-10 border-blue-400 border-[3px] rounded-lg'></div>)
   return (
-    <button className='flex items-center mt-5 w-[90%] p-3 rounded-2xl bg-black'>
-      <div className='h-10 w-10 border-blue-400 border-2 rounded-lg'></div>
-      <span className='ml-4 text-xl whitespace-nowrap text-ellipsis overflow-hidden'>Сделать домашку</span>
+    <button 
+    className='flex items-center mt-5 w-[90%] p-3 rounded-2xl bg-black'
+    onClick={() => {
+      setIsChecked(!isChecked)
+    }}
+    >
+      {isChecked ? checkedBox : uncheckedBox}
+      <span className='ml-4 text-xl whitespace-nowrap text-ellipsis overflow-hidden'>{isChecked ? <s>asdads</s> : 'asdasd'}</span>
     </button>
   )
 }
