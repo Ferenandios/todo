@@ -1,8 +1,6 @@
-import { list } from 'postcss'
 import React from 'react'
-import Todo from '../Todos/Todo/Todo'
 
-const Input = ({ list }) => {
+const Input = ({ list, setList }) => {
   const value = React.createRef()
   return (
     <div className='flex justify-center items-center mt-12'>
@@ -11,8 +9,10 @@ const Input = ({ list }) => {
       type="text"
       onKeyDown={event => {
         if (event.key === 'Enter') {
-          // При клике на энтер надо append в todos <todo />
-          list.append(<div>true!</div>)
+          const arr = list.slice() // clone list
+          arr.push(value.current.value)
+          setList(arr)
+          value.current.value = ''
         }
       }}
       />
