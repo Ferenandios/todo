@@ -1,12 +1,12 @@
 import React from 'react'
 import Todo from './Todo/Todo'
 
-const Todos = ({ setList }) => {
-  const list = React.createRef()
-  setList(list.current)
+const Todos = ({ list }) => {
   return (
-    <div ref={list} className='mt-8 flex flex-col items-center'>
-      <Todo />
+    <div className='mt-8 flex flex-col items-center'>
+      {list.map( (text) => (
+        <Todo text={text} />
+      ))}
     </div>
   )
 }
