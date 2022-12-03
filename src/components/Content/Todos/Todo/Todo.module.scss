@@ -1,0 +1,6 @@
+.span {
+  @apply text-xl text-ellipsis overflow-hidden;
+}
+.button {
+  @apply outline-none flex items-center mt-5 w-[90%] p-3 rounded-2xl bg-black;
+}
