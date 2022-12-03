@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useRef } from 'react'
 
 const Input = ({ list, setList }) => {
-  const value = React.createRef()
+  const value = React.useRef()
   return (
     <div className='flex justify-center items-center mt-12'>
       <input 
